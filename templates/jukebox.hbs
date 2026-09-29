@@ -1,0 +1,106 @@
+<div class="syncjuke-body">
+  <section class="now-playing">
+    <div class="title">
+      <i class="fa-solid fa-music"></i>
+      {{#if state.videoId}}{{state.title}}{{else}}<em>{{localize "SYNCJUKE.Nothing"}}</em>{{/if}}
+    </div>
+
+    {{#if blocked}}
+    <button type="button" class="unlock" data-action="unlock">
+      <i class="fa-solid fa-volume-high"></i> {{localize "SYNCJUKE.Unlock"}}
+    </button>
+    {{/if}}
+
+    {{#if isGM}}
+    <div class="transport">
+      <button type="button" data-action="prev" data-tooltip="SYNCJUKE.Prev"><i class="fa-solid fa-backward-step"></i></button>
+      <button type="button" data-action="togglePlay" data-tooltip="SYNCJUKE.PlayPause">
+        <i class="fa-solid {{#if state.playing}}fa-pause{{else}}fa-play{{/if}}"></i>
+      </button>
+      <button type="button" data-action="stop" data-tooltip="SYNCJUKE.Stop"><i class="fa-solid fa-stop"></i></button>
+      <button type="button" data-action="next" data-tooltip="SYNCJUKE.Next"><i class="fa-solid fa-forward-step"></i></button>
+      <select name="loopMode">
+        {{#each loops}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+      </select>
+    </div>
+    {{/if}}
+
+    <label class="volume" data-tooltip="SYNCJUKE.Volume">
+      <i class="fa-solid fa-volume-low"></i>
+      <input type="range" name="volume" min="0" max="100" step="1" value="{{volume}}">
+    </label>
+  </section>
+
+  {{#if isGM}}
+  <section class="preview">
+    <h4>{{localize "SYNCJUKE.Preview"}}</h4>
+    {{#if previewTitle}}
+    <div class="row">
+      <span class="grow">{{previewTitle}}</span>
+      <button type="button" data-action="stopPreview"><i class="fa-solid fa-stop"></i></button>
+    </div>
+    {{else}}
+    <em>{{localize "SYNCJUKE.PreviewNone"}}</em>
+    {{/if}}
+  </section>
+
+  <section class="search">
+    <h4>{{localize "SYNCJUKE.Search"}}</h4>
+    {{#unless hasApiKey}}<p class="hint">{{localize "SYNCJUKE.NoApiKey"}}</p>{{/unless}}
+    <div class="row">
+      <input type="text" name="query" value="{{search.query}}" placeholder="{{localize 'SYNCJUKE.SearchPlaceholder'}}">
+      <button type="button" data-action="search" data-tooltip="SYNCJUKE.Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    {{#if search.loading}}<em>{{localize "SYNCJUKE.Searching"}}</em>{{/if}}
+    {{#if search.error}}<p class="error">{{search.error}}</p>{{/if}}
+    {{#if search.results.length}}
+    <div class="row">
+      <span>{{localize "SYNCJUKE.AddTo"}}</span>
+      <select name="searchTarget" class="grow">
+        {{#each playlistOptions}}<option value="{{id}}" {{#if selected}}selected{{/if}}>{{name}}</option>{{/each}}
+      </select>
+    </div>
+    <ul class="results">
+      {{#each search.results}}
+      <li class="row" data-index="{{@index}}">
+        <img src="{{thumb}}" alt="" width="60">
+        <span class="grow"><strong>{{title}}</strong><br><small>{{channel}}</small></span>
+        <a data-action="previewResult" data-tooltip="SYNCJUKE.Preview"><i class="fa-solid fa-headphones"></i></a>
+        <a data-action="addResult" data-tooltip="SYNCJUKE.Add"><i class="fa-solid fa-plus"></i></a>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </section>
+
+  <section class="playlists">
+    <div class="row new-playlist">
+      <input type="text" name="newPlaylist" placeholder="{{localize 'SYNCJUKE.NewPlaylist'}}">
+      <button type="button" data-action="addPlaylist"><i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    {{#each playlists as |pl|}}
+    <fieldset class="playlist" data-playlist-id="{{pl.id}}">
+      <legend>
+        {{pl.name}}
+        <a data-action="deletePlaylist" data-tooltip="SYNCJUKE.Delete"><i class="fa-solid fa-trash"></i></a>
+      </legend>
+      <ul>
+        {{#each pl.tracks as |t|}}
+        <li class="row {{#if t.active}}active{{/if}}" data-index="{{t.index}}">
+          <span class="grow">{{t.title}}</span>
+          <a data-action="previewTrack" data-tooltip="SYNCJUKE.Preview"><i class="fa-solid fa-headphones"></i></a>
+          <a data-action="playTrack" data-tooltip="SYNCJUKE.Broadcast"><i class="fa-solid fa-tower-broadcast"></i></a>
+          <a data-action="removeTrack" data-tooltip="SYNCJUKE.Delete"><i class="fa-solid fa-xmark"></i></a>
+        </li>
+        {{/each}}
+      </ul>
+      <div class="row">
+        <input type="text" name="url" placeholder="{{localize 'SYNCJUKE.UrlPlaceholder'}}">
+        <button type="button" data-action="addTrack" data-tooltip="SYNCJUKE.Add"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </fieldset>
+    {{/each}}
+  </section>
+  {{/if}}
+</div>

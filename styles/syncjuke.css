@@ -1,0 +1,27 @@
+.syncjuke-player-host { position: fixed; bottom: 0; right: 0; width: 200px; height: 113px; opacity: 0.01; pointer-events: none; z-index: -1; overflow: hidden; }
+.syncjuke .syncjuke-body { display: flex; flex-direction: column; gap: 8px; height: 100%; }
+.syncjuke .now-playing { display: flex; flex-direction: column; gap: 6px; }
+.syncjuke .now-playing .title { font-weight: bold; }
+.syncjuke .transport { display: flex; gap: 4px; align-items: center; }
+.syncjuke .transport select { flex: 1; }
+.syncjuke .volume { display: flex; align-items: center; gap: 6px; }
+.syncjuke .volume input { flex: 1; }
+.syncjuke .row { display: flex; align-items: center; gap: 6px; }
+.syncjuke .row .grow { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.syncjuke .playlists { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.syncjuke .playlist ul { list-style: none; margin: 0 0 4px; padding: 0; }
+.syncjuke .playlist li.active { font-weight: bold; color: var(--color-text-hyperlink, #ff6400); }
+.syncjuke .unlock { background: var(--color-warm-2, #c9593f); color: #fff; }
+
+.syncjuke .search { display: flex; flex-direction: column; gap: 4px; }
+.syncjuke .search .hint { font-size: 0.85em; opacity: 0.8; margin: 0; }
+.syncjuke .search .error { color: var(--color-level-error, #c00); margin: 0; }
+.syncjuke .search .results { list-style: none; margin: 0; padding: 0; max-height: 220px; overflow-y: auto; }
+.syncjuke .search .results li { padding: 2px 0; border-bottom: 1px solid var(--color-border-light-2, #8884); }
+.syncjuke .search .results img { object-fit: cover; border-radius: 3px; }
+.syncjuke .search .results .grow { white-space: normal; }
+.syncjuke-sidebar { display: flex; flex-direction: column; gap: 4px; padding: 6px 8px; margin: 4px 0; border: 1px solid var(--color-border-light-2, #8884); border-radius: 6px; }
+.syncjuke-sidebar .mini-title { font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.syncjuke-sidebar .mini-controls { display: flex; align-items: center; gap: 4px; }
+.syncjuke-sidebar .mini-controls input[type=range] { flex: 1; min-width: 40px; }
+.syncjuke-sidebar .mini-controls button { width: auto; flex: 0 0 auto; padding: 0 8px; }

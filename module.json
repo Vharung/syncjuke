@@ -1,0 +1,29 @@
+{
+  "id": "syncjuke",
+  "title": "Sync Jukebox (YouTube)",
+  "description": "Jukebox YouTube synchronisé : pré-écoute MJ, diffusion aux joueurs, volume individuel, playlists et boucle.",
+  "version": "0.2.2",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Vous"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/syncjuke.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "socket": true
+}

@@ -1,0 +1,38 @@
+{
+  "SYNCJUKE": {
+    "Title": "Jukebox",
+    "Nothing": "Rien en lecture",
+    "Blocked": "Le navigateur bloque l'audio : cliquez sur « Activer le son » dans le Jukebox.",
+    "Unlock": "Activer le son",
+    "Volume": "Volume (personnel)",
+    "Loop": {
+      "Off": "Pas de boucle",
+      "Track": "Boucler le morceau",
+      "Playlist": "Boucler la playlist"
+    },
+    "NewPlaylist": "Nouvelle playlist",
+    "UrlPlaceholder": "Lien ou ID YouTube",
+    "InvalidUrl": "Lien YouTube invalide.",
+    "Preview": "Pré-écoute (vous seul)",
+    "PreviewNone": "Aucune pré-écoute",
+    "Broadcast": "Diffuser à tous",
+    "Delete": "Supprimer",
+    "DeleteConfirm": "Supprimer cette playlist ?",
+    "Prev": "Précédent",
+    "Next": "Suivant",
+    "Stop": "Arrêter",
+    "PlayPause": "Lecture / Pause",
+    "Add": "Ajouter",
+    "Search": "Rechercher sur YouTube",
+    "SearchPlaceholder": "Titre, artiste, ambiance…",
+    "Searching": "Recherche en cours…",
+    "NoResults": "Aucun résultat.",
+    "AddTo": "Ajouter à :",
+    "Added": "« {title} » ajouté à {playlist}.",
+    "NoPlaylist": "Créez d'abord une playlist.",
+    "NoApiKey": "La recherche nécessite une clé YouTube Data API v3 (Configuration des modules > Sync Jukebox).",
+    "ApiKeyName": "Sync Jukebox : clé API YouTube",
+    "ApiKeyHint": "Clé YouTube Data API v3 (Google Cloud Console) pour la recherche. Réservée au MJ, stockée uniquement dans votre navigateur.",
+    "OpenJukebox": "Ouvrir le Jukebox complet"
+  }
+}
