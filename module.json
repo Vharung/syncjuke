@@ -9,7 +9,7 @@
   },
   "authors": [
     {
-      "name": "Vous"
+      "name": "Vharung"
     }
   ],
   "esmodules": [
@@ -25,5 +25,8 @@
       "path": "lang/fr.json"
     }
   ],
-  "socket": true
+  "socket": true,
+  "url": "https://github.com/Vharung/syncjuke",
+  "manifest": "https://raw.githubusercontent.com/Vharung/syncjuke/main/system.json",
+  "download": "https://github.com/Vharung/syncjuke/archive/refs/heads/main.zip",
 }
